@@ -3,7 +3,7 @@
 {% block title %}Book index{% endblock %}
 
 {% block body %}
-    <h1>Book index</h1>
+    <h1>Knihovna</h1>
 
     <table class="table">
         <thead>
@@ -12,8 +12,7 @@
                 <th>Kniha</th>
                 <th>Autor</th>
                 <th>Rok</th>
-                <th> Vydavatel </th>
-                <th>actions</th>
+                <th>Vydavatel</th>
                 
             </tr>
         </thead>
@@ -26,8 +25,8 @@
                 <td>{{ book.rok|date("Y") }}</td>
                 <td>{{book.vydavatel}}</td>
                 <td>
-                    <a href="{{ path('app_book_show', {'id': book.id}) }}">show</a>
-                    <a href="{{ path('app_book_edit', {'id': book.id}) }}">edit</a>
+                    <a href="{{ path('app_book_show', {'id': book.id}) }}" class="btn btn-outline-primary">zobrazit</a>
+                    <a href="{{ path('app_book_edit', {'id': book.id}) }}" class="btn btn-outline-info">upravit</a>
                 </td>
             </tr>
         {% else %}
@@ -38,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_book_new') }}">Create new</a>
+    <a href="{{ path('app_book_new') }}" class="btn btn-success">Nový</a>
 {% endblock %}
