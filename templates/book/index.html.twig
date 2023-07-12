@@ -11,8 +11,10 @@
                 <th>Id</th>
                 <th>Kniha</th>
                 <th>Autor</th>
-                <th>Rok </th>
+                <th>Rok</th>
+                <th> Vydavatel </th>
                 <th>actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -22,6 +24,7 @@
                 <td>{{ book.kniha }}</td>
                 <td>{{ book.autor }}</td>
                 <td>{{ book.rok|date("Y") }}</td>
+                <td>{{book.vydavatel}}</td>
                 <td>
                     <a href="{{ path('app_book_show', {'id': book.id}) }}">show</a>
                     <a href="{{ path('app_book_edit', {'id': book.id}) }}">edit</a>

@@ -23,6 +23,9 @@ class Book
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $rok = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $vydavatel = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Book
     public function setRok(?\DateTimeInterface $rok): static
     {
         $this->rok = $rok;
+
+        return $this;
+    }
+
+    public function getVydavatel(): ?string
+    {
+        return $this->vydavatel;
+    }
+
+    public function setVydavatel(?string $vydavatel): static
+    {
+        $this->vydavatel = $vydavatel;
 
         return $this;
     }

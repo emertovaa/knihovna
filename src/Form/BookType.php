@@ -15,6 +15,7 @@ class BookType extends AbstractType
             ->add('kniha')
             ->add('autor')
             ->add('rok')
+            ->add('vydavatel')
         ;
     }
 
