@@ -3,9 +3,9 @@
 {% block title %}Book{% endblock %}
 
 {% block body %}
-    <h1>Book</h1>
+    <h1>Kniha</h1>
 
-    <table class="table">
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -21,10 +21,15 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('app_book_index') }}" class="btn btn-warning">Zpět na hlavní stránku</a>
-
+<div class="row">
+    <div class="col">
+    <a href="{{ path('app_book_index') }}" class="btn btn-warning me-3">Zpět na hlavní stránku</a>
     <a href="{{ path('app_book_edit', {'id': book.id}) }}" class= "btn btn-info">Upravit</a>
-
+    </div>
+    <div class="col text-end">
     {{ include('book/_delete_form.html.twig') }}
+    </div>
+</div>
+
+    
 {% endblock %}

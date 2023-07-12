@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Knihovna</h1>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,7 +23,8 @@
                 <td>{{ book.kniha }}</td>
                 <td>{{ book.autor }}</td>
                 <td>{{ book.rok|date("Y") }}</td>
-                <td>{{book.vydavatel}}</td>
+                <td>{{ book.vydavatel }}</td>
+                
                 <td>
                     <a href="{{ path('app_book_show', {'id': book.id}) }}" class="btn btn-outline-primary">zobrazit</a>
                     <a href="{{ path('app_book_edit', {'id': book.id}) }}" class="btn btn-outline-info">upravit</a>
