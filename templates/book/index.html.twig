@@ -13,7 +13,7 @@
                 <th>Autor</th>
                 <th>Rok</th>
                 <th>Vydavatel</th>
-                
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@
                 <td>{{ book.rok|date("Y") }}</td>
                 <td>{{ book.vydavatel }}</td>
                 
-                <td>
+                <td class= "text-end">
                     <a href="{{ path('app_book_show', {'id': book.id}) }}" class="btn btn-outline-primary">zobrazit</a>
                     <a href="{{ path('app_book_edit', {'id': book.id}) }}" class="btn btn-outline-info">upravit</a>
                 </td>
