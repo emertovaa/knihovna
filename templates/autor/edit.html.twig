@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Autor{% endblock %}
+
+{% block body %}
+    <h1>Upravit Autora</h1>
+    <div class="mb-3">
+    {{ include('autor/_form.html.twig', {'button_label': 'Uložit'}) }}
+    </div>
+    <div class="row">
+    <div class="col">
+    <a href="{{ path('app_autor_index') }}" class= "btn btn-info" >Zpět</a>
+    </div>
+    <div class="col text-end">
+    {{ include('autor/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}

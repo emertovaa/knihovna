@@ -4,10 +4,9 @@
 
 {% block body %}
     <h1>Nová kniha</h1>
+    {{ include('book/_form.html.twig') }}
     <div class="row-12">
     <div class="col-12">
     <a href="{{ path('app_book_index') }}" class="btn btn-warning">Zpět na hlavní stránku</a>
-    <div class= "col">
-    {{ include('book/_form.html.twig') }}
     </div></div>
 {% endblock %}
