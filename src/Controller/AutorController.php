@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Dto\AutorDto;
 use App\Entity\Autor;
 use App\Form\AutorType;
 use App\Repository\AutorRepository;
@@ -17,8 +18,23 @@ class AutorController extends AbstractController
     #[Route('/', name: 'app_autor_index', methods: ['GET'])]
     public function index(AutorRepository $autorRepository): Response
     {
+        $autorDtoList = [];
+        foreach ($autorRepository->findAll() as $autor) {
+            $bookList = [];
+            foreach ($autor->getBooks() as $book) {
+                $bookList[] = $book->getKniha();
+            }
+            $autorDtoList[] = new AutorDto(
+                $autor->getJmeno(),
+                $bookList,
+                $autor->getId(),
+                $autor->getPrijmeni(),
+                $autor->getRokNarozeni()
+            );
+        }
+
         return $this->render('autor/index.html.twig', [
-            'autors' => $autorRepository->findAll(),
+            'autors' => $autorDtoList,
         ]);
     }
 
@@ -71,7 +87,7 @@ class AutorController extends AbstractController
     #[Route('/{id}', name: 'app_autor_delete', methods: ['POST'])]
     public function delete(Request $request, Autor $autor, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$autor->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $autor->getId(), $request->request->get('_token'))) {
             $entityManager->remove($autor);
             $entityManager->flush();
         }

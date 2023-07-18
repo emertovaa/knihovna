@@ -12,6 +12,7 @@
                 <th>Jméno</th>
                 <th>Příjmení</th>
                 <th>Rok narození</th>
+                <th>Knihy</th>
                 <th></th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ autor.jmeno }}</td>
                 <td>{{ autor.prijmeni }}</td>
                 <td>{{ autor.rokNarozeni }}</td>
+                <td>{{ autor.books|join(', ')}}</td>
                 <td>
                     <a href="{{ path('app_autor_show', {'id': autor.id}) }}" class="btn btn-outline-primary">zobrazit</a>
                     <a href="{{ path('app_autor_edit', {'id': autor.id}) }}"  class="btn btn-outline-secondary">upravit</a>

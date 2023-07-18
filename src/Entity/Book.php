@@ -69,4 +69,14 @@ class Book
 
         return $this;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getKniha()
+    {
+        return $this->kniha;
+    }
 }
