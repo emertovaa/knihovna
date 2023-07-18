@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th>Autor</th>
-                <td>{{ book.autor }}</td>
+                <td>{% if book.autor %}{{ book.autor.name }}{% endif %}</td>
             </tr>
         </tbody>
     </table>

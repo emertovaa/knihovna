@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ book.id }}</td>
                 <td>{{ book.kniha }}</td>
-                <td>{{ book.autor }}</td>
+                <td>{% if book.autor %}{{ book.autor.jmeno }}{% endif %}</td>
                 <td>{{ book.rok|date("Y") }}</td>
                 <td>{{ book.vydavatel }}</td>
                 
@@ -32,7 +32,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Žádné záznamy</td>
             </tr>
         {% endfor %}
         </tbody>

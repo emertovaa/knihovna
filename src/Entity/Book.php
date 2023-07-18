@@ -17,14 +17,14 @@ class Book
     #[ORM\Column(length: 255)]
     private ?string $kniha = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $autor = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $rok = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $vydavatel = null;
+
+    #[ORM\ManyToOne(inversedBy: 'books')]
+    private ?Autor $autor = null;
 
     public function getId(): ?int
     {
@@ -39,18 +39,6 @@ class Book
     public function setKniha(string $kniha): static
     {
         $this->kniha = $kniha;
-
-        return $this;
-    }
-
-    public function getAutor(): ?string
-    {
-        return $this->autor;
-    }
-
-    public function setAutor(string $autor): static
-    {
-        $this->autor = $autor;
 
         return $this;
     }
@@ -75,6 +63,18 @@ class Book
     public function setVydavatel(?string $vydavatel): static
     {
         $this->vydavatel = $vydavatel;
+
+        return $this;
+    }
+
+    public function getAutor(): ?Autor
+    {
+        return $this->autor;
+    }
+
+    public function setAutor(?Autor $autor): static
+    {
+        $this->autor = $autor;
 
         return $this;
     }
