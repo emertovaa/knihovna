@@ -26,15 +26,6 @@ class Book
     #[ORM\ManyToOne(inversedBy: 'books')]
     private ?Autor $autor = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getKniha(): ?string
-    {
-        return $this->kniha;
-    }
 
     public function setKniha(string $kniha): static
     {
