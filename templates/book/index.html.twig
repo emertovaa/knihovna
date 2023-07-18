@@ -21,7 +21,11 @@
             <tr>
                 <td>{{ book.id }}</td>
                 <td>{{ book.kniha }}</td>
-                <td>{% if book.autor %}{{ book.autor.jmeno }}{% endif %}</td>
+                <td>{% if book.autor %}
+                <a href="{{ path('app_autor_show', {'id': book.autor.id}) }}" >
+                {{ book.autor.jmeno }}
+                </a>
+                {% endif %}</td>
                 <td>{{ book.rok|date("Y") }}</td>
                 <td>{{ book.vydavatel }}</td>
                 
