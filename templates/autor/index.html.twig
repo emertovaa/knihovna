@@ -23,7 +23,7 @@
                 <td>{{ autor.jmeno }}</td>
                 <td>{{ autor.prijmeni }}</td>
                 <td>{{ autor.rokNarozeni }}</td>
-                <td>{{ autor.books|join(', ')}}</td>
+                <td>{{ autor.books|join(', ') }}</td>
                 <td>
                     <a href="{{ path('app_autor_show', {'id': autor.id}) }}" class="btn btn-outline-primary">zobrazit</a>
                     <a href="{{ path('app_autor_edit', {'id': autor.id}) }}"  class="btn btn-outline-secondary">upravit</a>
@@ -37,5 +37,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_autor_new') }}" class="btn btn-success">Vytvořit</a>
+    <a href="{{ path('app_autor_new') }}" class="btn btn-success">Nový</a>
+    <a href= "{{ path('app_book_index')}}" class="btn btn-primary">Zpět na přehled knih</a>
 {% endblock %}
