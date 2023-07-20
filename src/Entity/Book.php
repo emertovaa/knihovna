@@ -26,6 +26,9 @@ class Book
     #[ORM\ManyToOne(inversedBy: 'books')]
     private ?Autor $autor = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $precteno = null;
+
 
     public function setKniha(string $kniha): static
     {
@@ -78,5 +81,17 @@ class Book
     public function getKniha()
     {
         return $this->kniha;
+    }
+
+    public function isPrecteno(): ?bool
+    {
+        return $this->precteno;
+    }
+
+    public function setPrecteno(?bool $precteno): static
+    {
+        $this->precteno = $precteno;
+
+        return $this;
     }
 }

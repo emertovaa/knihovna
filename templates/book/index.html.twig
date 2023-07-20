@@ -21,6 +21,7 @@
                 <th>Autor</th>
                 <th>Rok</th>
                 <th>Vydavatel</th>
+                <th>Přečteno</th>
                 <th></th>
             </tr>
         </thead>
@@ -31,11 +32,12 @@
                 <td>{{ book.kniha }}</td>
                 <td>{% if book.autor %}
                 <a href="{{ path('app_autor_show', {'id': book.autor.id}) }}" >
-                {{ book.autor.jmeno }}
+                {{ book.autor.prijmeni }}
                 </a>
                 {% endif %}</td>
                 <td>{{ book.rok|date("Y") }}</td>
                 <td>{{ book.vydavatel }}</td>
+                <td>{{ book.precteno }}</td>
                 
                 <td class= "text-end">
                     <a href="{{ path('app_book_show', {'id': book.id}) }}" class="btn btn-outline-primary">zobrazit</a>

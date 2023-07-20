@@ -21,6 +21,7 @@ class BookType extends AbstractType
             ])
             ->add('rok')
             ->add('vydavatel')
+            ->add('precteno')
         ;
     }
 
